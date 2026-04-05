@@ -31,210 +31,56 @@
       --shadow-md: 0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
 
-    /* HEADER */
-    .site-header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 58px;
-      gap: 1rem;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 16px;
-    }
-    .logo-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      color: var(--text);
-      letter-spacing: -0.02em;
-    }
+    .site-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 50; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 1rem; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 32px; height: 32px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; }
+    .logo-text { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--text); letter-spacing: -0.02em; }
     .logo-text span { color: var(--accent); }
     .header-nav { display: flex; gap: 4px; }
-    .nav-btn {
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text2);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      transition: all .15s;
-    }
+    .nav-btn { padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid transparent; background: transparent; color: var(--text2); font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
     .nav-btn:hover { background: var(--surface2); color: var(--text); }
     .nav-btn.active { background: var(--text); color: white; }
-    .btn-add {
-      padding: 7px 16px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      transition: opacity .15s;
-    }
-    .btn-add:hover { opacity: .88; }
 
-    /* MAIN */
     .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
-    /* HERO */
-    .hero {
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 30px;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      line-height: 1.2;
-    }
+    .hero { margin-bottom: 2rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 30px; letter-spacing: -0.03em; color: var(--text); line-height: 1.2; }
     .hero p { color: var(--text2); font-size: 14px; margin-top: 4px; }
 
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 1.5rem;
-    }
+    /* BANNER DE FUENTE */
+    .source-banner { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .7rem 1.2rem; margin-bottom: 1.2rem; font-size: 12px; color: var(--text2); box-shadow: var(--shadow); flex-wrap: wrap; }
+    .source-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+    .source-dot.offline { background: var(--amber); }
+    .source-dot.error { background: var(--accent); }
+    .source-banner strong { color: var(--text); font-weight: 500; }
+    .source-banner code { background: var(--surface2); padding: 1px 6px; border-radius: 4px; font-size: 11px; font-family: monospace; color: var(--text); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
     @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-    .stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.2rem;
-      box-shadow: var(--shadow);
-    }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: var(--shadow); }
     .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: 5px; }
     .stat-value { font-size: 26px; font-weight: 600; color: var(--text); }
     .stat-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
 
-    /* FILTERS */
-    .filter-bar {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.2rem;
-      margin-bottom: 1.2rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: flex-end;
-    }
+    .filter-bar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; margin-bottom: 1.2rem; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
     .filter-group { display: flex; flex-direction: column; gap: 4px; }
     .filter-group label { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); font-weight: 600; }
-    .filter-group select,
-    .filter-group input[type="date"] {
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      cursor: pointer;
-    }
-    .filter-group select:focus,
-    .filter-group input:focus { border-color: var(--accent); }
+    .filter-group select, .filter-group input[type="date"] { padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; outline: none; cursor: pointer; }
+    .filter-group select:focus, .filter-group input:focus { border-color: var(--accent); }
     .search-wrap { flex: 1; min-width: 200px; }
-    .search-wrap input {
-      width: 100%;
-      padding: 7px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-    }
+    .search-wrap input { width: 100%; padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; outline: none; }
     .search-wrap input:focus { border-color: var(--accent); }
-    .btn-reset {
-      padding: 6px 14px;
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--text2);
-      font-size: 12px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      white-space: nowrap;
-    }
+    .btn-reset { padding: 6px 14px; border: 1px solid var(--border2); border-radius: var(--radius-sm); background: transparent; color: var(--text2); font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
     .btn-reset:hover { background: var(--surface2); }
 
-    /* TABLE */
-    .table-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .table-meta {
-      padding: .75rem 1.2rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text3);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .table-meta { padding: .75rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; }
-    thead th {
-      background: var(--surface2);
-      padding: 10px 14px;
-      text-align: left;
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--text3);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
+    thead th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); border-bottom: 1px solid var(--border); white-space: nowrap; }
     tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
     tbody tr:last-child { border-bottom: none; }
     tbody tr:hover { background: var(--bg); }
@@ -244,168 +90,57 @@
     .td-fecha { font-size: 13px; white-space: nowrap; color: var(--text); }
     .td-fecha .hora { font-size: 11px; color: var(--text3); }
 
-    /* BADGES */
-    .badge {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
+    .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 500; white-space: nowrap; }
     .badge-zona { background: var(--blue-light); color: var(--blue); }
     .badge-cat { background: var(--accent2-light); color: var(--accent2); }
     .badge-gratis { background: var(--accent2-light); color: var(--accent2); }
     .badge-pago { background: var(--amber-light); color: var(--amber); }
 
-    /* ROW ACTIONS */
     .row-actions { display: flex; gap: 5px; }
-    .btn-edit, .btn-del {
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-      font-size: 11px;
-      font-weight: 500;
-      cursor: pointer;
-      border: 1px solid;
-      font-family: 'DM Sans', sans-serif;
-      transition: all .12s;
-    }
+    .btn-edit, .btn-del { padding: 4px 10px; border-radius: var(--radius-sm); font-size: 11px; font-weight: 500; cursor: pointer; border: 1px solid; font-family: 'DM Sans', sans-serif; transition: all .12s; }
     .btn-edit { background: transparent; border-color: var(--border2); color: var(--text2); }
     .btn-edit:hover { background: var(--surface2); color: var(--text); }
     .btn-del { background: transparent; border-color: #F09595; color: #A32D2D; }
     .btn-del:hover { background: #FCEBEB; }
 
-    .empty-state {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--text3);
-    }
+    .empty-state { text-align: center; padding: 4rem 2rem; color: var(--text3); }
     .empty-state p { font-size: 15px; margin-top: .5rem; }
 
+    /* LOADING */
+    .loading-state { text-align: center; padding: 4rem 2rem; color: var(--text3); }
+    .spinner { width: 28px; height: 28px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     /* MODAL */
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(20,18,14,0.45);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(20,18,14,0.45); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
     .overlay.open { display: flex; }
-    .modal {
-      background: var(--surface);
-      border-radius: 14px;
-      width: min(640px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-md);
-      animation: slideUp .2s ease;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(16px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .modal-header {
-      padding: 1.5rem 1.5rem 1rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .modal-header h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      letter-spacing: -0.02em;
-    }
-    .modal-close {
-      width: 28px; height: 28px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: transparent;
-      cursor: pointer;
-      font-size: 16px;
-      color: var(--text2);
-      display: flex; align-items: center; justify-content: center;
-    }
+    .modal { background: var(--surface); border-radius: 14px; width: min(640px, 100%); max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-md); animation: slideUp .2s ease; }
+    @keyframes slideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .modal-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-header h2 { font-family: 'DM Serif Display', serif; font-size: 20px; letter-spacing: -0.02em; }
+    .modal-close { width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 50%; background: transparent; cursor: pointer; font-size: 16px; color: var(--text2); display: flex; align-items: center; justify-content: center; }
     .modal-close:hover { background: var(--surface2); }
     .modal-body { padding: 1.5rem; }
 
-    /* FORM */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
     .fg { display: flex; flex-direction: column; gap: 5px; }
     .fg.full { grid-column: 1 / -1; }
     .fg label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--text2); }
-    .fg input, .fg select, .fg textarea {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      transition: border-color .12s;
-    }
+    .fg input, .fg select, .fg textarea { padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .12s; }
     .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--accent); }
     .fg textarea { resize: vertical; min-height: 72px; }
-    .form-error {
-      color: var(--accent);
-      font-size: 12px;
-      margin-top: .5rem;
-      display: none;
-    }
-    .modal-footer {
-      padding: 1rem 1.5rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-    .btn-cancel {
-      padding: 8px 18px;
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--text2);
-      font-size: 13px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
+    .form-error { color: var(--accent); font-size: 12px; margin-top: .5rem; display: none; }
+    .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
+    .btn-cancel { padding: 8px 18px; border: 1px solid var(--border2); border-radius: var(--radius-sm); background: transparent; color: var(--text2); font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; }
     .btn-cancel:hover { background: var(--surface2); }
-    .btn-save {
-      padding: 8px 20px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
+    .btn-save { padding: 8px 20px; background: var(--accent); color: white; border: none; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
     .btn-save:hover { opacity: .88; }
 
-    /* PANEL AGREGAR */
     .panel { display: none; }
     .panel.active { display: block; }
-    .add-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      max-width: 680px;
-    }
-    .add-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      color: var(--text);
-    }
+    .add-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; max-width: 680px; }
+    .add-card h2 { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: var(--text); }
     .panel-lista { display: none; }
     .panel-lista.active { display: block; }
   </style>
@@ -426,7 +161,6 @@
 </header>
 
 <main class="main">
-
   <div class="hero">
     <div>
       <h1>Base de datos<br>de eventos</h1>
@@ -434,11 +168,16 @@
     </div>
   </div>
 
+  <!-- BANNER FUENTE DE DATOS -->
+  <div class="source-banner" id="source-banner">
+    <div class="spinner" style="width:14px;height:14px;margin:0;flex-shrink:0"></div>
+    <span>Cargando base de datos...</span>
+  </div>
+
   <div class="stats" id="stats"></div>
 
   <!-- PANEL LISTA -->
   <div class="panel-lista active" id="panel-lista">
-
     <div class="filter-bar">
       <div class="search-wrap">
         <label style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);display:block;margin-bottom:4px">Buscar</label>
@@ -446,21 +185,11 @@
       </div>
       <div class="filter-group">
         <label>Zona</label>
-        <select id="f-zona">
-          <option value="">Todas</option>
-          <option>El Poblado</option><option>Laureles</option><option>Envigado</option>
-          <option>Centro</option><option>Belén</option><option>Estadio</option>
-          <option>Sabaneta</option><option>Itagüí</option><option>Bello</option><option>Otra</option>
-        </select>
+        <select id="f-zona"><option value="">Todas</option></select>
       </div>
       <div class="filter-group">
         <label>Categoría</label>
-        <select id="f-cat">
-          <option value="">Todas</option>
-          <option>Música</option><option>Teatro</option><option>Gastronomía</option>
-          <option>Deporte</option><option>Arte y cultura</option><option>Negocios</option>
-          <option>Educación</option><option>Familia</option><option>Otro</option>
-        </select>
+        <select id="f-cat"><option value="">Todas</option></select>
       </div>
       <div class="filter-group">
         <label>Precio</label>
@@ -487,7 +216,7 @@
           <option value="zona">Zona</option>
         </select>
       </div>
-      <button class="btn-reset" onclick="resetFilters()">Limpiar filtros</button>
+      <button class="btn-reset" onclick="resetFilters()">Limpiar</button>
     </div>
 
     <div class="table-card">
@@ -502,16 +231,12 @@
         <table>
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Fecha</th>
-              <th>Zona</th>
-              <th>Categoría</th>
-              <th>Precio</th>
-              <th>Lugar</th>
-              <th>Acciones</th>
+              <th>Nombre</th><th>Fecha</th><th>Zona</th><th>Categoría</th><th>Precio</th><th>Lugar</th><th>Acciones</th>
             </tr>
           </thead>
-          <tbody id="tbody"></tbody>
+          <tbody id="tbody">
+            <tr><td colspan="7"><div class="loading-state"><div class="spinner"></div><p>Cargando eventos...</p></div></td></tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -522,18 +247,9 @@
     <div class="add-card">
       <h2>Nuevo evento</h2>
       <div class="form-grid">
-        <div class="fg full">
-          <label>Nombre del evento *</label>
-          <input type="text" id="a-nombre" placeholder="Ej: Festival de Jazz del Parque">
-        </div>
-        <div class="fg">
-          <label>Fecha *</label>
-          <input type="date" id="a-fecha">
-        </div>
-        <div class="fg">
-          <label>Hora</label>
-          <input type="time" id="a-hora">
-        </div>
+        <div class="fg full"><label>Nombre del evento *</label><input type="text" id="a-nombre" placeholder="Ej: Festival de Jazz del Parque"></div>
+        <div class="fg"><label>Fecha *</label><input type="date" id="a-fecha"></div>
+        <div class="fg"><label>Hora</label><input type="time" id="a-hora"></div>
         <div class="fg">
           <label>Zona / Comuna *</label>
           <select id="a-zona">
@@ -552,26 +268,11 @@
             <option>Educación</option><option>Familia</option><option>Otro</option>
           </select>
         </div>
-        <div class="fg">
-          <label>Precio COP (0 = gratis)</label>
-          <input type="number" id="a-precio" placeholder="0" min="0" step="1000">
-        </div>
-        <div class="fg">
-          <label>Lugar / Recinto</label>
-          <input type="text" id="a-lugar" placeholder="Ej: Parque Explora">
-        </div>
-        <div class="fg full">
-          <label>Descripción</label>
-          <textarea id="a-desc" placeholder="Breve descripción del evento..."></textarea>
-        </div>
-        <div class="fg">
-          <label>Link / Más info</label>
-          <input type="url" id="a-link" placeholder="https://...">
-        </div>
-        <div class="fg">
-          <label>Capacidad (personas)</label>
-          <input type="number" id="a-cap" placeholder="Opcional" min="0">
-        </div>
+        <div class="fg"><label>Precio COP (0 = gratis)</label><input type="number" id="a-precio" placeholder="0" min="0" step="1000"></div>
+        <div class="fg"><label>Lugar / Recinto</label><input type="text" id="a-lugar" placeholder="Ej: Parque Explora"></div>
+        <div class="fg full"><label>Descripción</label><textarea id="a-desc" placeholder="Breve descripción del evento..."></textarea></div>
+        <div class="fg"><label>Link / Más info</label><input type="url" id="a-link" placeholder="https://..."></div>
+        <div class="fg"><label>Capacidad (personas)</label><input type="number" id="a-cap" placeholder="Opcional" min="0"></div>
       </div>
       <p class="form-error" id="a-error">Por favor completa los campos obligatorios.</p>
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:1.25rem">
@@ -591,18 +292,9 @@
     </div>
     <div class="modal-body">
       <div class="form-grid">
-        <div class="fg full">
-          <label>Nombre del evento *</label>
-          <input type="text" id="e-nombre">
-        </div>
-        <div class="fg">
-          <label>Fecha *</label>
-          <input type="date" id="e-fecha">
-        </div>
-        <div class="fg">
-          <label>Hora</label>
-          <input type="time" id="e-hora">
-        </div>
+        <div class="fg full"><label>Nombre del evento *</label><input type="text" id="e-nombre"></div>
+        <div class="fg"><label>Fecha *</label><input type="date" id="e-fecha"></div>
+        <div class="fg"><label>Hora</label><input type="time" id="e-hora"></div>
         <div class="fg">
           <label>Zona / Comuna *</label>
           <select id="e-zona">
@@ -621,26 +313,11 @@
             <option>Educación</option><option>Familia</option><option>Otro</option>
           </select>
         </div>
-        <div class="fg">
-          <label>Precio COP</label>
-          <input type="number" id="e-precio" min="0" step="1000">
-        </div>
-        <div class="fg">
-          <label>Lugar / Recinto</label>
-          <input type="text" id="e-lugar">
-        </div>
-        <div class="fg full">
-          <label>Descripción</label>
-          <textarea id="e-desc"></textarea>
-        </div>
-        <div class="fg">
-          <label>Link / Más info</label>
-          <input type="url" id="e-link">
-        </div>
-        <div class="fg">
-          <label>Capacidad</label>
-          <input type="number" id="e-cap" min="0">
-        </div>
+        <div class="fg"><label>Precio COP</label><input type="number" id="e-precio" min="0" step="1000"></div>
+        <div class="fg"><label>Lugar / Recinto</label><input type="text" id="e-lugar"></div>
+        <div class="fg full"><label>Descripción</label><textarea id="e-desc"></textarea></div>
+        <div class="fg"><label>Link / Más info</label><input type="url" id="e-link"></div>
+        <div class="fg"><label>Capacidad</label><input type="number" id="e-cap" min="0"></div>
       </div>
     </div>
     <div class="modal-footer">
@@ -651,223 +328,280 @@
 </div>
 
 <script>
-const SKEY = 'medellin_eventos_v1';
-let editId = null;
+  /* ============================================================
+     CONFIGURACIÓN — solo cambia estas líneas si mueves el archivo
+     ============================================================ */
+  const JSON_URL = 'eventos.json';   // ruta relativa al index.html
+  const SKEY     = 'medellin_eventos_v1';
+  /* ============================================================ */
 
-const SAMPLE = [
-  {id:1,nombre:'Festival Estéreo Picnic',fecha:'2026-04-25',hora:'14:00',zona:'El Poblado',cat:'Música',precio:280000,lugar:'Parque de la 93',desc:'Festival de música electrónica y rock internacional.',link:'',cap:20000},
-  {id:2,nombre:'Feria de las Flores',fecha:'2026-08-05',hora:'09:00',zona:'Centro',cat:'Arte y cultura',precio:0,lugar:'Parque de Bolívar',desc:'Evento emblema de Medellín con desfile de silleteros.',link:'',cap:0},
-  {id:3,nombre:'Medellín Gourmet',fecha:'2026-05-10',hora:'11:00',zona:'Laureles',cat:'Gastronomía',precio:35000,lugar:'Estadio Atanasio Girardot',desc:'Festival gastronómico con los mejores restaurantes de la ciudad.',link:'',cap:5000},
-  {id:4,nombre:'Torneo de Escalada Urbana',fecha:'2026-05-18',hora:'08:00',zona:'Envigado',cat:'Deporte',precio:0,lugar:'Mall Viva Envigado',desc:'Competencia abierta de escalada deportiva.',link:'',cap:300},
-  {id:5,nombre:'Obra: La Vorágine',fecha:'2026-04-30',hora:'19:00',zona:'Centro',cat:'Teatro',precio:45000,lugar:'Teatro Pablo Tobón Uribe',desc:'Adaptación teatral de la novela colombiana.',link:'',cap:800},
-];
+  let editId = null;
+  let dataSource = 'loading'; // 'json' | 'local' | 'error'
 
-function load() {
-  const raw = localStorage.getItem(SKEY);
-  if (!raw) { localStorage.setItem(SKEY, JSON.stringify(SAMPLE)); return SAMPLE; }
-  return JSON.parse(raw);
-}
-function save(d) { localStorage.setItem(SKEY, JSON.stringify(d)); }
-function nextId(d) { return d.length ? Math.max(...d.map(e => e.id)) + 1 : 1; }
-function fmt(n) { return (!n || n == 0) ? 'Gratis' : '$' + Number(n).toLocaleString('es-CO'); }
+  /* ---------- CARGA INICIAL ---------- */
+  async function init() {
+    // 1. Intentar cargar desde eventos.json
+    try {
+      const res = await fetch(JSON_URL);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const jsonData = await res.json();
 
-function switchTab(t) {
-  document.getElementById('tab-lista').classList.toggle('active', t === 'lista');
-  document.getElementById('tab-agregar').classList.toggle('active', t === 'agregar');
-  document.getElementById('panel-lista').classList.toggle('active', t === 'lista');
-  document.getElementById('panel-agregar').classList.toggle('active', t === 'agregar');
-  if (t === 'lista') renderTable();
-}
+      // Verificar si ya hay datos locales más nuevos
+      const local = localStorage.getItem(SKEY);
+      if (!local) {
+        // Primera carga: guardar JSON en localStorage
+        localStorage.setItem(SKEY, JSON.stringify(jsonData));
+        dataSource = 'json';
+        setBanner('json', jsonData.length);
+      } else {
+        // Ya hay datos locales (el usuario agregó/editó eventos)
+        // Preguntar si quiere recargar desde el JSON
+        const localData = JSON.parse(local);
+        dataSource = 'local';
+        setBanner('local', localData.length);
+      }
+    } catch (e) {
+      // JSON no disponible: usar localStorage o array vacío
+      const local = localStorage.getItem(SKEY);
+      if (local) {
+        dataSource = 'local';
+        setBanner('offline', JSON.parse(local).length);
+      } else {
+        dataSource = 'error';
+        setBanner('error', 0);
+      }
+    }
 
-function renderStats() {
-  const data = load();
-  const hoy = new Date().toISOString().slice(0, 10);
-  const proximos = data.filter(e => e.fecha >= hoy).length;
-  const gratis = data.filter(e => !e.precio || e.precio == 0).length;
-  const zonas = [...new Set(data.map(e => e.zona).filter(Boolean))].length;
-  document.getElementById('stats').innerHTML = `
-    <div class="stat"><div class="stat-label">Total eventos</div><div class="stat-value">${data.length}</div><div class="stat-sub">en base de datos</div></div>
-    <div class="stat"><div class="stat-label">Próximos</div><div class="stat-value">${proximos}</div><div class="stat-sub">desde hoy</div></div>
-    <div class="stat"><div class="stat-label">Gratuitos</div><div class="stat-value">${gratis}</div><div class="stat-sub">sin costo de entrada</div></div>
-    <div class="stat"><div class="stat-label">Zonas</div><div class="stat-value">${zonas}</div><div class="stat-sub">comunas activas</div></div>
-  `;
-}
-
-function getFilters() {
-  return {
-    q: (document.getElementById('search').value || '').toLowerCase(),
-    zona: document.getElementById('f-zona').value,
-    cat: document.getElementById('f-cat').value,
-    precio: document.getElementById('f-precio').value,
-    desde: document.getElementById('f-desde').value,
-    hasta: document.getElementById('f-hasta').value,
-    orden: document.getElementById('f-orden').value,
-  };
-}
-
-function renderTable() {
-  renderStats();
-  let data = load();
-  const {q, zona, cat, precio, desde, hasta, orden} = getFilters();
-
-  if (q) data = data.filter(e => (e.nombre + e.lugar + e.desc).toLowerCase().includes(q));
-  if (zona) data = data.filter(e => e.zona === zona);
-  if (cat) data = data.filter(e => e.cat === cat);
-  if (precio === 'gratis') data = data.filter(e => !e.precio || e.precio == 0);
-  if (precio === 'pago') data = data.filter(e => e.precio && e.precio > 0);
-  if (desde) data = data.filter(e => e.fecha >= desde);
-  if (hasta) data = data.filter(e => e.fecha <= hasta);
-
-  if (orden === 'fecha') data.sort((a, b) => a.fecha.localeCompare(b.fecha));
-  else if (orden === 'nombre') data.sort((a, b) => a.nombre.localeCompare(b.nombre));
-  else if (orden === 'precio') data.sort((a, b) => (a.precio || 0) - (b.precio || 0));
-  else if (orden === 'zona') data.sort((a, b) => (a.zona || '').localeCompare(b.zona || ''));
-
-  const tbody = document.getElementById('tbody');
-  document.getElementById('count').textContent = `${data.length} evento${data.length !== 1 ? 's' : ''} encontrado${data.length !== 1 ? 's' : ''}`;
-
-  if (!data.length) {
-    tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><div style="font-size:32px">📭</div><p>No se encontraron eventos con estos filtros.</p></div></td></tr>';
-    return;
+    // Poblar filtros dinámicos
+    buildFilters();
+    renderStats();
+    renderTable();
+    bindEvents();
   }
 
-  tbody.innerHTML = data.map(e => `
-    <tr>
-      <td class="td-name">
-        <strong>${e.nombre}</strong>
-        ${e.desc ? `<span>${e.desc.slice(0, 55)}${e.desc.length > 55 ? '…' : ''}</span>` : ''}
-      </td>
-      <td class="td-fecha">
-        ${e.fecha}
-        ${e.hora ? `<div class="hora">${e.hora}</div>` : ''}
-      </td>
-      <td><span class="badge badge-zona">${e.zona || '—'}</span></td>
-      <td><span class="badge badge-cat">${e.cat || '—'}</span></td>
-      <td><span class="badge ${(!e.precio || e.precio == 0) ? 'badge-gratis' : 'badge-pago'}">${fmt(e.precio)}</span></td>
-      <td style="font-size:12px;color:var(--text2)">${e.lugar || '—'}</td>
-      <td>
-        <div class="row-actions">
+  function setBanner(mode, count) {
+    const b = document.getElementById('source-banner');
+    const modes = {
+      json:    { dot: '', text: `Base de datos cargada desde <code>${JSON_URL}</code> — <strong>${count} eventos</strong>. Los cambios se guardan localmente.`, btn: false },
+      local:   { dot: 'offline', text: `Usando datos locales (${count} eventos). El archivo <code>${JSON_URL}</code> existe pero ya tienes cambios locales.`, btn: true },
+      offline: { dot: 'offline', text: `Sin conexión al archivo <code>${JSON_URL}</code>. Mostrando datos guardados localmente (${count} eventos).`, btn: false },
+      error:   { dot: 'error',   text: `No se pudo cargar <code>${JSON_URL}</code> y no hay datos locales. Agrega el archivo junto al HTML.`, btn: false },
+    };
+    const m = modes[mode];
+    b.innerHTML = `
+      <div class="source-dot ${m.dot}"></div>
+      <span>${m.text}</span>
+      ${m.btn ? `<button class="btn-reset" onclick="reloadFromJSON()" style="margin-left:auto">Recargar desde JSON</button>` : ''}
+    `;
+  }
+
+  async function reloadFromJSON() {
+    if (!confirm('¿Recargar desde eventos.json? Se perderán los cambios locales.')) return;
+    localStorage.removeItem(SKEY);
+    await init();
+  }
+
+  /* ---------- DATOS ---------- */
+  function load() {
+    const raw = localStorage.getItem(SKEY);
+    return raw ? JSON.parse(raw) : [];
+  }
+  function save(d) { localStorage.setItem(SKEY, JSON.stringify(d)); }
+  function nextId(d) { return d.length ? Math.max(...d.map(e => e.id)) + 1 : 1; }
+  function fmt(n) { return (!n || n == 0) ? 'Gratis' : '$' + Number(n).toLocaleString('es-CO'); }
+
+  /* ---------- FILTROS DINÁMICOS ---------- */
+  function buildFilters() {
+    const data = load();
+    const zonas = [...new Set(data.map(e => e.zona).filter(Boolean))].sort();
+    const cats  = [...new Set(data.map(e => e.cat).filter(Boolean))].sort();
+
+    const fz = document.getElementById('f-zona');
+    fz.innerHTML = '<option value="">Todas</option>' + zonas.map(z => `<option>${z}</option>`).join('');
+
+    const fc = document.getElementById('f-cat');
+    fc.innerHTML = '<option value="">Todas</option>' + cats.map(c => `<option>${c}</option>`).join('');
+  }
+
+  /* ---------- STATS ---------- */
+  function renderStats() {
+    const data = load();
+    const hoy = new Date().toISOString().slice(0, 10);
+    const proximos = data.filter(e => e.fecha >= hoy).length;
+    const gratis   = data.filter(e => !e.precio || e.precio == 0).length;
+    const zonas    = [...new Set(data.map(e => e.zona).filter(Boolean))].length;
+    document.getElementById('stats').innerHTML = `
+      <div class="stat"><div class="stat-label">Total eventos</div><div class="stat-value">${data.length}</div><div class="stat-sub">en base de datos</div></div>
+      <div class="stat"><div class="stat-label">Próximos</div><div class="stat-value">${proximos}</div><div class="stat-sub">desde hoy</div></div>
+      <div class="stat"><div class="stat-label">Gratuitos</div><div class="stat-value">${gratis}</div><div class="stat-sub">sin costo de entrada</div></div>
+      <div class="stat"><div class="stat-label">Zonas</div><div class="stat-value">${zonas}</div><div class="stat-sub">comunas activas</div></div>
+    `;
+  }
+
+  /* ---------- TABLA ---------- */
+  function renderTable() {
+    let data = load();
+    const q      = (document.getElementById('search').value || '').toLowerCase();
+    const zona   = document.getElementById('f-zona').value;
+    const cat    = document.getElementById('f-cat').value;
+    const precio = document.getElementById('f-precio').value;
+    const desde  = document.getElementById('f-desde').value;
+    const hasta  = document.getElementById('f-hasta').value;
+    const orden  = document.getElementById('f-orden').value;
+
+    if (q)               data = data.filter(e => (e.nombre + e.lugar + e.desc).toLowerCase().includes(q));
+    if (zona)            data = data.filter(e => e.zona === zona);
+    if (cat)             data = data.filter(e => e.cat === cat);
+    if (precio==='gratis') data = data.filter(e => !e.precio || e.precio == 0);
+    if (precio==='pago')   data = data.filter(e => e.precio && e.precio > 0);
+    if (desde)           data = data.filter(e => e.fecha >= desde);
+    if (hasta)           data = data.filter(e => e.fecha <= hasta);
+
+    if (orden==='fecha')  data.sort((a,b) => a.fecha.localeCompare(b.fecha));
+    else if (orden==='nombre') data.sort((a,b) => a.nombre.localeCompare(b.nombre));
+    else if (orden==='precio') data.sort((a,b) => (a.precio||0)-(b.precio||0));
+    else if (orden==='zona')   data.sort((a,b) => (a.zona||'').localeCompare(b.zona||''));
+
+    const tbody = document.getElementById('tbody');
+    document.getElementById('count').textContent = `${data.length} evento${data.length!==1?'s':''} encontrado${data.length!==1?'s':''}`;
+
+    if (!data.length) {
+      tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><div style="font-size:32px">📭</div><p>No se encontraron eventos con estos filtros.</p></div></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = data.map(e => `
+      <tr>
+        <td class="td-name">
+          <strong>${e.nombre}</strong>
+          ${e.desc ? `<span>${e.desc.slice(0,55)}${e.desc.length>55?'…':''}</span>` : ''}
+        </td>
+        <td class="td-fecha">${e.fecha}${e.hora?`<div class="hora">${e.hora}</div>`:''}</td>
+        <td><span class="badge badge-zona">${e.zona||'—'}</span></td>
+        <td><span class="badge badge-cat">${e.cat||'—'}</span></td>
+        <td><span class="badge ${(!e.precio||e.precio==0)?'badge-gratis':'badge-pago'}">${fmt(e.precio)}</span></td>
+        <td style="font-size:12px;color:var(--text2)">${e.lugar||'—'}</td>
+        <td><div class="row-actions">
           <button class="btn-edit" onclick="abrirEditar(${e.id})">Editar</button>
           <button class="btn-del" onclick="eliminar(${e.id})">Borrar</button>
-        </div>
-      </td>
-    </tr>
-  `).join('');
-}
+        </div></td>
+      </tr>
+    `).join('');
+  }
 
-function resetFilters() {
-  ['search','f-zona','f-cat','f-precio','f-desde','f-hasta'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('f-orden').value = 'fecha';
-  renderTable();
-}
+  /* ---------- TABS ---------- */
+  function switchTab(t) {
+    document.getElementById('tab-lista').classList.toggle('active', t==='lista');
+    document.getElementById('tab-agregar').classList.toggle('active', t==='agregar');
+    document.getElementById('panel-lista').classList.toggle('active', t==='lista');
+    document.getElementById('panel-agregar').classList.toggle('active', t==='agregar');
+    if (t==='lista') renderTable();
+  }
 
-function guardar() {
-  const nombre = document.getElementById('a-nombre').value.trim();
-  const fecha = document.getElementById('a-fecha').value;
-  const zona = document.getElementById('a-zona').value;
-  const cat = document.getElementById('a-cat').value;
-  const err = document.getElementById('a-error');
-  if (!nombre || !fecha || !zona || !cat) { err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  const data = load();
-  data.push({
-    id: nextId(data),
-    nombre, fecha,
-    hora: document.getElementById('a-hora').value,
-    zona, cat,
-    precio: parseFloat(document.getElementById('a-precio').value) || 0,
-    lugar: document.getElementById('a-lugar').value.trim(),
-    desc: document.getElementById('a-desc').value.trim(),
-    link: document.getElementById('a-link').value.trim(),
-    cap: parseInt(document.getElementById('a-cap').value) || 0,
-  });
-  save(data);
-  resetAddForm();
-  switchTab('lista');
-}
+  /* ---------- AGREGAR ---------- */
+  function guardar() {
+    const nombre = document.getElementById('a-nombre').value.trim();
+    const fecha  = document.getElementById('a-fecha').value;
+    const zona   = document.getElementById('a-zona').value;
+    const cat    = document.getElementById('a-cat').value;
+    const err    = document.getElementById('a-error');
+    if (!nombre||!fecha||!zona||!cat) { err.style.display='block'; return; }
+    err.style.display='none';
+    const data = load();
+    data.push({
+      id: nextId(data), nombre, fecha,
+      hora: document.getElementById('a-hora').value, zona, cat,
+      precio: parseFloat(document.getElementById('a-precio').value)||0,
+      lugar: document.getElementById('a-lugar').value.trim(),
+      desc:  document.getElementById('a-desc').value.trim(),
+      link:  document.getElementById('a-link').value.trim(),
+      cap:   parseInt(document.getElementById('a-cap').value)||0,
+    });
+    save(data);
+    buildFilters();
+    resetAddForm();
+    switchTab('lista');
+    renderStats();
+  }
 
-function resetAddForm() {
-  ['a-nombre','a-fecha','a-hora','a-precio','a-lugar','a-desc','a-link','a-cap'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('a-zona').value = '';
-  document.getElementById('a-cat').value = '';
-  document.getElementById('a-error').style.display = 'none';
-}
+  function resetAddForm() {
+    ['a-nombre','a-fecha','a-hora','a-precio','a-lugar','a-desc','a-link','a-cap'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('a-zona').value='';
+    document.getElementById('a-cat').value='';
+    document.getElementById('a-error').style.display='none';
+  }
 
-function eliminar(id) {
-  if (!confirm('¿Eliminar este evento? Esta acción no se puede deshacer.')) return;
-  save(load().filter(e => e.id !== id));
-  renderTable();
-}
+  /* ---------- EDITAR ---------- */
+  function abrirEditar(id) {
+    const e = load().find(x=>x.id===id); if(!e) return;
+    editId=id;
+    document.getElementById('e-nombre').value=e.nombre||'';
+    document.getElementById('e-fecha').value=e.fecha||'';
+    document.getElementById('e-hora').value=e.hora||'';
+    document.getElementById('e-zona').value=e.zona||'';
+    document.getElementById('e-cat').value=e.cat||'';
+    document.getElementById('e-precio').value=e.precio||0;
+    document.getElementById('e-lugar').value=e.lugar||'';
+    document.getElementById('e-desc').value=e.desc||'';
+    document.getElementById('e-link').value=e.link||'';
+    document.getElementById('e-cap').value=e.cap||'';
+    document.getElementById('overlay').classList.add('open');
+  }
 
-function abrirEditar(id) {
-  const e = load().find(x => x.id === id);
-  if (!e) return;
-  editId = id;
-  document.getElementById('e-nombre').value = e.nombre || '';
-  document.getElementById('e-fecha').value = e.fecha || '';
-  document.getElementById('e-hora').value = e.hora || '';
-  document.getElementById('e-zona').value = e.zona || '';
-  document.getElementById('e-cat').value = e.cat || '';
-  document.getElementById('e-precio').value = e.precio || 0;
-  document.getElementById('e-lugar').value = e.lugar || '';
-  document.getElementById('e-desc').value = e.desc || '';
-  document.getElementById('e-link').value = e.link || '';
-  document.getElementById('e-cap').value = e.cap || '';
-  document.getElementById('overlay').classList.add('open');
-}
+  function actualizar() {
+    const data=load(); const idx=data.findIndex(e=>e.id===editId); if(idx<0) return;
+    data[idx]={...data[idx],
+      nombre: document.getElementById('e-nombre').value.trim(),
+      fecha:  document.getElementById('e-fecha').value,
+      hora:   document.getElementById('e-hora').value,
+      zona:   document.getElementById('e-zona').value,
+      cat:    document.getElementById('e-cat').value,
+      precio: parseFloat(document.getElementById('e-precio').value)||0,
+      lugar:  document.getElementById('e-lugar').value.trim(),
+      desc:   document.getElementById('e-desc').value.trim(),
+      link:   document.getElementById('e-link').value.trim(),
+      cap:    parseInt(document.getElementById('e-cap').value)||0,
+    };
+    save(data); closeModal(); renderTable();
+  }
 
-function actualizar() {
-  const data = load();
-  const idx = data.findIndex(e => e.id === editId);
-  if (idx < 0) return;
-  data[idx] = {
-    ...data[idx],
-    nombre: document.getElementById('e-nombre').value.trim(),
-    fecha: document.getElementById('e-fecha').value,
-    hora: document.getElementById('e-hora').value,
-    zona: document.getElementById('e-zona').value,
-    cat: document.getElementById('e-cat').value,
-    precio: parseFloat(document.getElementById('e-precio').value) || 0,
-    lugar: document.getElementById('e-lugar').value.trim(),
-    desc: document.getElementById('e-desc').value.trim(),
-    link: document.getElementById('e-link').value.trim(),
-    cap: parseInt(document.getElementById('e-cap').value) || 0,
-  };
-  save(data);
-  closeModal();
-  renderTable();
-}
+  function eliminar(id) {
+    if (!confirm('¿Eliminar este evento?')) return;
+    save(load().filter(e=>e.id!==id));
+    renderStats(); renderTable();
+  }
 
-function closeModal() {
-  document.getElementById('overlay').classList.remove('open');
-  editId = null;
-}
+  function closeModal() { document.getElementById('overlay').classList.remove('open'); editId=null; }
 
-function exportCSV() {
-  const data = load();
-  const headers = ['ID','Nombre','Fecha','Hora','Zona','Categoría','Precio','Lugar','Descripción','Link','Capacidad'];
-  const rows = data.map(e => [e.id, e.nombre, e.fecha, e.hora, e.zona, e.cat, e.precio, e.lugar, e.desc, e.link, e.cap].map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(','));
-  const csv = [headers.join(','), ...rows].join('\n');
-  download('eventos_medellin.csv', csv, 'text/csv');
-}
+  /* ---------- EXPORT ---------- */
+  function exportCSV() {
+    const data=load();
+    const h=['ID','Nombre','Fecha','Hora','Zona','Categoría','Precio','Lugar','Descripción','Link','Capacidad'];
+    const rows=data.map(e=>[e.id,e.nombre,e.fecha,e.hora,e.zona,e.cat,e.precio,e.lugar,e.desc,e.link,e.cap].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(','));
+    dl('eventos_medellin.csv',[h.join(','),...rows].join('\n'),'text/csv');
+  }
+  function exportJSON() { dl('eventos_medellin.json',JSON.stringify(load(),null,2),'application/json'); }
+  function dl(filename,content,type) {
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([content],{type}));
+    a.download=filename; a.click();
+  }
 
-function exportJSON() {
-  download('eventos_medellin.json', JSON.stringify(load(), null, 2), 'application/json');
-}
+  /* ---------- FILTROS ---------- */
+  function resetFilters() {
+    ['search','f-zona','f-cat','f-precio','f-desde','f-hasta'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('f-orden').value='fecha';
+    renderTable();
+  }
 
-function download(filename, content, type) {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([content], {type}));
-  a.download = filename;
-  a.click();
-}
+  function bindEvents() {
+    document.getElementById('search').addEventListener('input', renderTable);
+    ['f-zona','f-cat','f-precio','f-desde','f-hasta','f-orden'].forEach(id=>document.getElementById(id).addEventListener('change',renderTable));
+    document.getElementById('overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+  }
 
-document.getElementById('overlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-document.getElementById('search').addEventListener('input', renderTable);
-['f-zona','f-cat','f-precio','f-desde','f-hasta','f-orden'].forEach(id => document.getElementById(id).addEventListener('change', renderTable));
-
-renderStats();
-renderTable();
+  /* ---------- ARRANQUE ---------- */
+  init();
 </script>
 </body>
 </html>
