@@ -868,7 +868,7 @@ function closeLogin(){document.getElementById('login-overlay').classList.remove(
 function doLogin(){
   const u=document.getElementById('login-user').value.trim();
   const p=document.getElementById('login-pass').value.trim();
-  if(u==='admin'&&p==='admin123'){
+  if(u==='admin'&&p==='123456'){
     closeLogin();
     document.getElementById('pub-view').style.display='none';
     document.getElementById('admin-view').style.display='block';
