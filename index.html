@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué Hay en Medellín? 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0E0E12;
+  --surface: #16161C;
+  --surface2: #1E1E26;
+  --surface3: #252530;
+  --border: rgba(255,255,255,0.08);
+  --text: #FFFFFF;
+  --text2: #A0A0B0;
+  --text3: #606070;
+  --orange: #F5722A;
+  --orange-dark: #C9541A;
+  --yellow: #F5C842;
+  --pink: #FF4D8F;
+  --purple: #7C5CFC;
+  --teal: #2DD4BF;
+  --green: #22C55E;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 3.5rem 2rem 2.5rem;
+  position: relative;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,114,42,0.12) 0%, transparent 70%);
+}
+.city-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(245,114,42,0.15); border: 1px solid rgba(245,114,42,0.3);
+  color: var(--orange); font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 1.2rem;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(64px, 12vw, 120px);
+  line-height: .92;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.hero-title .highlight { color: var(--orange); }
+.hero-sub { color: var(--text2); font-size: 15px; margin-top: 1rem; margin-bottom: 2rem; }
+
+/* ── STATS ── */
+.stats {
+  display: flex; justify-content: center; gap: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--text3); margin-top: 2px; }
+
+/* ── NAV TABS ── */
+.tabs-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; gap: 0;
+  position: sticky; top: 0; z-index: 50;
+}
+.tab-btn {
+  padding: 1rem 1.4rem;
+  background: transparent; border: none;
+  color: var(--text2); font-size: 13px; font-weight: 500;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  border-bottom: 2px solid transparent;
+  transition: all .15s; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+/* ── MAIN ── */
+.main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+/* ── SEARCH ── */
+.search-row {
+  display: flex; gap: 12px; align-items: center;
+  margin-bottom: 1.2rem;
+}
+.search-box {
+  flex: 1; position: relative;
+}
+.search-box input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  padding: 12px 16px 12px 44px;
+  outline: none;
+  transition: border-color .15s;
+}
+.search-box input::placeholder { color: var(--text3); }
+.search-box input:focus { border-color: var(--orange); }
+.search-box .search-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--text3); font-size: 16px; pointer-events: none;
+}
+
+/* ── FILTER PILLS ── */
+.pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.pill {
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface); color: var(--text2);
+  font-size: 12px; font-weight: 500; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all .15s; white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+}
+.pill:hover { border-color: var(--orange); color: var(--text); }
+.pill.active { background: var(--orange); border-color: var(--orange); color: white; }
+
+/* ── SORT PILLS ── */
+.sort-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+.sort-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--text3); font-weight: 600; }
+.sort-pill {
+  padding: 5px 12px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text2);
+  font-size: 12px; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all .15s;
+  display: flex; align-items: center; gap: 4px;
+}
+.sort-pill:hover { border-color: var(--orange); color: var(--text); }
+.sort-pill.active { background: var(--surface2); border-color: var(--orange); color: var(--orange); }
+
+/* ── MES PILLS ── */
+.mes-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.mes-pill {
+  padding: 7px 18px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text2);
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all .15s;
+}
+.mes-pill:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
+.mes-pill.active { background: var(--orange); border-color: var(--orange); color: white; font-weight: 600; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--text3); font-weight: 600; margin-bottom: 1.2rem;
+}
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+@media (max-width: 760px) { .cards-grid { grid-template-columns: 1fr; } }
+
+/* ── EVENT CARD ── */
+.event-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  cursor: pointer;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+  position: relative;
+  overflow: hidden;
+}
+.event-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-color, var(--orange));
+}
+.event-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.15); box-shadow: var(--shadow); }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.card-cat {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--cat-bg, rgba(245,114,42,0.15));
+  color: var(--cat-color, var(--orange));
+}
+.card-precio {
+  font-size: 13px; font-weight: 600; color: var(--yellow);
+  white-space: nowrap;
+}
+.card-precio.gratis { color: var(--green); }
+
+.card-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.card-desc { font-size: 12px; color: var(--text2); margin-bottom: 12px; line-height: 1.5; }
+
+.card-footer { display: flex; justify-content: space-between; align-items: center; }
+.card-meta { display: flex; flex-direction: column; gap: 3px; }
+.card-fecha { font-size: 12px; color: var(--text2); display: flex; align-items: center; gap: 5px; }
+.card-lugar { font-size: 11px; color: var(--text3); display: flex; align-items: center; gap: 5px; }
+.card-estado {
+  padding: 3px 10px; border-radius: 6px; font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.estado-activo { background: rgba(34,197,94,0.15); color: var(--green); }
+.estado-futuro { background: rgba(124,92,252,0.15); color: var(--purple); }
+.estado-finalizado { background: rgba(96,96,112,0.2); color: var(--text3); }
+.estado-cancelado { background: rgba(255,77,143,0.15); color: var(--pink); }
+
+/* ── LOADING / EMPTY ── */
+.loading-state { text-align: center; padding: 5rem 2rem; color: var(--text3); }
+.spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid var(--surface3); border-top-color: var(--orange); border-radius: 50%; animation: spin .7s linear infinite; margin-bottom: 1rem; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty-state { text-align: center; padding: 5rem 2rem; color: var(--text3); font-size: 15px; }
+
+/* ── COUNT ── */
+.results-meta { font-size: 12px; color: var(--text3); margin-bottom: 1rem; }
+
+/* ── MODAL ── */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(4px); }
+.overlay.open { display: flex; }
+.modal { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); width: min(580px, 100%); max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 80px rgba(0,0,0,0.6); animation: slideUp .2s ease; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-top { position: relative; height: 6px; background: var(--modal-color, var(--orange)); border-radius: var(--radius) var(--radius) 0 0; }
+.modal-header { padding: 1.5rem 1.5rem 1rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.modal-header h2 { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.modal-close { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%; background: transparent; cursor: pointer; font-size: 16px; color: var(--text2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .15s; }
+.modal-close:hover { background: var(--surface2); color: var(--text); }
+.modal-body { padding: 0 1.5rem 1.5rem; }
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.modal-item { display: flex; flex-direction: column; gap: 4px; }
+.modal-item.full { grid-column: 1 / -1; }
+.modal-label { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--text3); font-weight: 600; }
+.modal-value { font-size: 14px; color: var(--text2); }
+.modal-value a { color: var(--orange); text-decoration: none; }
+.modal-value a:hover { text-decoration: underline; }
+.modal-value.big { font-size: 18px; font-weight: 600; color: var(--yellow); }
+.modal-value.big.gratis { color: var(--green); }
+.modal-footer-btns { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+.btn-close-modal { padding: 9px 22px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text2); font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
+.btn-close-modal:hover { background: var(--surface3); color: var(--text); }
+
+/* ── PANEL ── */
+.panel { display: none; }
+.panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="city-badge">🌸 Ciudad de la Eterna Primavera</div>
+  <h1 class="hero-title">QUÉ HAY EN<br><span class="highlight">MEDELLÍN</span></h1>
+  <p class="hero-sub">Agenda cultural · Base de datos de eventos 2026</p>
+  <div class="stats" id="stats">
+    <div class="stat"><div class="stat-value" id="s-total">—</div><div class="stat-label">Eventos</div></div>
+    <div class="stat"><div class="stat-value" id="s-gratis">—</div><div class="stat-label">Gratuitos</div></div>
+    <div class="stat"><div class="stat-value">7</div><div class="stat-label">Tablas BD</div></div>
+    <div class="stat"><div class="stat-value">6</div><div class="stat-label">FK</div></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <button class="tab-btn active" id="tab-eventos" onclick="switchTab('eventos')">🌸 Eventos</button>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="panel active" id="panel-eventos">
+
+    <!-- SEARCH -->
+    <div class="search-row">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search" placeholder="Buscar evento, artista, lugar...">
+      </div>
+    </div>
+
+    <!-- CATEGORÍA PILLS -->
+    <div class="pills" id="cat-pills">
+      <button class="pill active" data-cat="" onclick="setCat(this,'')">Todos</button>
+      <button class="pill" data-cat="1" onclick="setCat(this,'1')">🎵 Concierto</button>
+      <button class="pill" data-cat="2" onclick="setCat(this,'2')">🎪 Festival</button>
+      <button class="pill" data-cat="3" onclick="setCat(this,'3')">🎭 Teatro</button>
+      <button class="pill" data-cat="4" onclick="setCat(this,'4')">😂 Comedia</button>
+      <button class="pill" data-cat="5" onclick="setCat(this,'5')">💃 Danza</button>
+      <button class="pill" data-cat="6" onclick="setCat(this,'6')">📚 Cultural</button>
+      <button class="pill" data-cat="7" onclick="setCat(this,'7')">🎨 Arte</button>
+      <button class="pill" data-cat="9" onclick="setCat(this,'9')">🍽️ Gastronomía</button>
+      <button class="pill" data-cat="gratis" onclick="setCat(this,'gratis')">✅ Gratuitos</button>
+    </div>
+
+    <!-- SORT PILLS -->
+    <div class="sort-row">
+      <span class="sort-label">Ordenar:</span>
+      <button class="sort-pill active" data-sort="fecha_inicio" onclick="setSort(this,'fecha_inicio')">📅 Fecha ↑</button>
+      <button class="sort-pill" data-sort="fecha_inicio.desc" onclick="setSort(this,'fecha_inicio.desc')">📅 Fecha ↓</button>
+      <button class="sort-pill" data-sort="precio_minimo" onclick="setSort(this,'precio_minimo')">💰 Precio ↑</button>
+      <button class="sort-pill" data-sort="precio_minimo.desc" onclick="setSort(this,'precio_minimo.desc')">💰 Precio ↓</button>
+      <button class="sort-pill" data-sort="nombre" onclick="setSort(this,'nombre')">🔤 A→Z</button>
+    </div>
+
+    <!-- MES PILLS -->
+    <div class="mes-row">
+      <button class="mes-pill active" data-mes="" onclick="setMes(this,'')">Todos</button>
+      <button class="mes-pill" data-mes="04" onclick="setMes(this,'04')">Abril</button>
+      <button class="mes-pill" data-mes="05" onclick="setMes(this,'05')">Mayo</button>
+      <button class="mes-pill" data-mes="06" onclick="setMes(this,'06')">Junio</button>
+      <button class="mes-pill" data-mes="07" onclick="setMes(this,'07')">Julio</button>
+      <button class="mes-pill" data-mes="08" onclick="setMes(this,'08')">Agosto</button>
+      <button class="mes-pill" data-mes="09" onclick="setMes(this,'09')">Septiembre</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section-label" id="results-label">EVENTOS · MEDELLÍN 2026</div>
+    <div id="cards-container">
+      <div class="loading-state"><div class="spinner"></div><br>Conectando con Supabase...</div>
+    </div>
+
+  </div>
+</main>
+
+<!-- MODAL DETALLE -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-top" id="modal-top"></div>
+    <div class="modal-header">
+      <h2 id="modal-titulo"></h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid" id="modal-body"></div>
+    </div>
+    <div class="modal-footer-btns">
+      <button class="btn-close-modal" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Config ─────────────────────────────────────────────────
+const SUPA_URL = 'https://igeddijchyaebdinogtx.supabase.co';
+const SUPA_KEY = 'sb_publishable_z-qBSWFgEtBbi3pJdfFlEw_ZJBHQ5Ev';
+
+async function sbFetch(path) {
+  const res = await fetch(`${SUPA_URL}/rest/v1/${path}`, {
+    headers: { 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}` }
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+// ── Colores por categoría ──────────────────────────────────
+const CAT_COLORS = {
+  1: { bg: 'rgba(245,114,42,0.12)', color: '#F5722A', accent: '#F5722A' },  // Concierto - naranja
+  2: { bg: 'rgba(245,200,66,0.12)', color: '#F5C842', accent: '#F5C842' },  // Festival - amarillo
+  3: { bg: 'rgba(124,92,252,0.12)', color: '#7C5CFC', accent: '#7C5CFC' },  // Teatro - púrpura
+  4: { bg: 'rgba(255,77,143,0.12)', color: '#FF4D8F', accent: '#FF4D8F' },  // Comedia - rosa
+  5: { bg: 'rgba(45,212,191,0.12)', color: '#2DD4BF', accent: '#2DD4BF' },  // Danza - teal
+  6: { bg: 'rgba(96,165,250,0.12)', color: '#60A5FA', accent: '#60A5FA' },  // Cultural - azul
+  7: { bg: 'rgba(251,146,60,0.12)', color: '#FB923C', accent: '#FB923C' },  // Arte - naranja claro
+  8: { bg: 'rgba(167,139,250,0.12)', color: '#A78BFA', accent: '#A78BFA' }, // Ópera - lavanda
+  9: { bg: 'rgba(52,211,153,0.12)', color: '#34D399', accent: '#34D399' },  // Gastronomía - verde
+  10:{ bg: 'rgba(251,191,36,0.12)', color: '#FBBF24', accent: '#FBBF24' },  // Cine - ámbar
+};
+
+// ── Estado ─────────────────────────────────────────────────
+let allEventos = [], categoriasMap = {}, lugaresMap = {};
+let filtCat = '', filtMes = '', filtSort = 'fecha_inicio';
+
+// ── Init ───────────────────────────────────────────────────
+async function init() {
+  try {
+    const [cats, lug] = await Promise.all([
+      sbFetch('categorias_evento?select=id_categoria,nombre,emoji'),
+      sbFetch('lugares?select=id_lugar,nombre,barrio,comuna')
+    ]);
+    cats.forEach(c => categoriasMap[c.id_categoria] = c);
+    lug.forEach(l => lugaresMap[l.id_lugar] = l);
+    allEventos = await sbFetch('eventos?select=*&order=fecha_inicio&limit=300');
+    renderStats();
+    render();
+  } catch(e) {
+    document.getElementById('cards-container').innerHTML =
+      `<div class="empty-state">⚠️ Error al conectar: ${e.message}</div>`;
+  }
+}
+
+function renderStats() {
+  document.getElementById('s-total').textContent = allEventos.length;
+  document.getElementById('s-gratis').textContent = allEventos.filter(e => e.es_gratuito).length;
+}
+
+// ── Filtros ────────────────────────────────────────────────
+function setCat(el, val) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  filtCat = val; render();
+}
+function setSort(el, val) {
+  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  filtSort = val; render();
+}
+function setMes(el, val) {
+  document.querySelectorAll('.mes-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  filtMes = val; render();
+}
+
+function render() {
+  const q = document.getElementById('search').value.toLowerCase();
+  let data = [...allEventos];
+
+  if (q) data = data.filter(e =>
+    (e.nombre+(e.descripcion||'')+(lugaresMap[e.id_lugar]?.nombre||'')).toLowerCase().includes(q));
+  if (filtCat === 'gratis') data = data.filter(e => e.es_gratuito);
+  else if (filtCat) data = data.filter(e => e.id_categoria == filtCat);
+  if (filtMes) data = data.filter(e => e.fecha_inicio?.slice(5,7) === filtMes);
+
+  if (filtSort === 'fecha_inicio')       data.sort((a,b) => (a.fecha_inicio||'').localeCompare(b.fecha_inicio||''));
+  else if (filtSort === 'fecha_inicio.desc') data.sort((a,b) => (b.fecha_inicio||'').localeCompare(a.fecha_inicio||''));
+  else if (filtSort === 'precio_minimo')     data.sort((a,b) => (a.precio_minimo||0)-(b.precio_minimo||0));
+  else if (filtSort === 'precio_minimo.desc') data.sort((a,b) => (b.precio_minimo||0)-(a.precio_minimo||0));
+  else if (filtSort === 'nombre')            data.sort((a,b) => a.nombre.localeCompare(b.nombre));
+
+  document.getElementById('results-label').textContent =
+    `EVENTOS · MEDELLÍN 2026  ·  ${data.length} resultado${data.length!==1?'s':''}`;
+
+  const container = document.getElementById('cards-container');
+  if (!data.length) {
+    container.innerHTML = '<div class="empty-state">📭 No se encontraron eventos con estos filtros.</div>';
+    return;
+  }
+
+  container.innerHTML = `<div class="cards-grid">${data.map(cardHTML).join('')}</div>`;
+}
+
+function fmtFecha(f) {
+  if (!f) return '—';
+  const [y,m,d] = f.split('-');
+  const meses = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  return `${d} ${meses[parseInt(m)]} ${y}`;
+}
+function fmtPrecio(e) {
+  if (e.es_gratuito || !e.precio_minimo || e.precio_minimo == 0) return { txt: 'GRATIS', gratis: true };
+  const min = '$' + Math.round(e.precio_minimo/1000) + 'k';
+  const max = e.precio_maximo && e.precio_maximo > e.precio_minimo
+    ? '–$' + Math.round(e.precio_maximo/1000) + 'k' : '';
+  return { txt: min + max, gratis: false };
+}
+
+function cardHTML(e) {
+  const cat = categoriasMap[e.id_categoria] || {};
+  const lug = lugaresMap[e.id_lugar] || {};
+  const c = CAT_COLORS[e.id_categoria] || CAT_COLORS[1];
+  const precio = fmtPrecio(e);
+  const estadoCls = { activo:'estado-activo', futuro:'estado-futuro', finalizado:'estado-finalizado', cancelado:'estado-cancelado' }[e.estado] || '';
+  const desc = e.descripcion ? e.descripcion.slice(0,90) + (e.descripcion.length>90?'…':'') : '';
+
+  return `<div class="event-card" style="--card-color:${c.accent}" onclick='abrirModal(${JSON.stringify(e).replace(/'/g,"&#39;")})'>
+    <div class="card-top">
+      <span class="card-cat" style="--cat-bg:${c.bg};--cat-color:${c.color}">${cat.emoji||''} ${cat.nombre||'—'}</span>
+      <span class="card-precio ${precio.gratis?'gratis':''}">${precio.txt}</span>
+    </div>
+    <div class="card-title">${e.nombre}</div>
+    ${desc ? `<div class="card-desc">${desc}</div>` : ''}
+    <div class="card-footer">
+      <div class="card-meta">
+        <span class="card-fecha">📅 ${fmtFecha(e.fecha_inicio)}${e.hora_inicio?' · '+e.hora_inicio.slice(0,5):''}</span>
+        <span class="card-lugar">📍 ${lug.nombre||'—'}${lug.barrio?', '+lug.barrio:''}</span>
+      </div>
+      <span class="card-estado ${estadoCls}">${e.estado||''}</span>
+    </div>
+  </div>`;
+}
+
+// ── Modal ──────────────────────────────────────────────────
+function abrirModal(e) {
+  const cat = categoriasMap[e.id_categoria] || {};
+  const lug = lugaresMap[e.id_lugar] || {};
+  const c   = CAT_COLORS[e.id_categoria] || CAT_COLORS[1];
+  const precio = fmtPrecio(e);
+
+  document.getElementById('modal-top').style.background = c.accent;
+  document.getElementById('modal-titulo').textContent = e.nombre;
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-item full">
+      <div class="modal-label">Descripción</div>
+      <div class="modal-value">${e.descripcion || '—'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Fecha</div>
+      <div class="modal-value">${fmtFecha(e.fecha_inicio)}${e.fecha_fin && e.fecha_fin !== e.fecha_inicio ? ' → '+fmtFecha(e.fecha_fin) : ''}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Hora</div>
+      <div class="modal-value">${e.hora_inicio ? e.hora_inicio.slice(0,5) : '—'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Lugar</div>
+      <div class="modal-value">${lug.nombre||'—'}${lug.barrio?', '+lug.barrio:''}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Categoría</div>
+      <div class="modal-value">${cat.emoji||''} ${cat.nombre||'—'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Precio</div>
+      <div class="modal-value big ${precio.gratis?'gratis':''}">${precio.gratis ? 'GRATIS' : '$'+Number(e.precio_minimo).toLocaleString('es-CO')+(e.precio_maximo>e.precio_minimo?' — $'+Number(e.precio_maximo).toLocaleString('es-CO'):'')}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Aforo</div>
+      <div class="modal-value">${e.aforo_total ? Number(e.aforo_total).toLocaleString('es-CO')+' personas' : 'Sin límite'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Edad mínima</div>
+      <div class="modal-value">${e.edad_minima ? '+'+e.edad_minima+' años' : 'Todas las edades'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Estado</div>
+      <div class="modal-value">${e.estado||'—'}</div>
+    </div>
+    <div class="modal-item">
+      <div class="modal-label">Fuente</div>
+      <div class="modal-value">${e.fuente||'—'}</div>
+    </div>
+    ${e.enlace_compra ? `<div class="modal-item full"><div class="modal-label">Enlace</div><div class="modal-value"><a href="${e.enlace_compra}" target="_blank">🔗 Ver / Comprar entradas</a></div></div>` : ''}
+  `;
+  document.getElementById('overlay').classList.add('open');
+}
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+document.getElementById('overlay').addEventListener('click', e => { if (e.target === document.getElementById('overlay')) closeModal(); });
+
+// ── Tab ────────────────────────────────────────────────────
+function switchTab(t) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.id === 'tab-'+t));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-'+t));
+}
+
+// ── Search listener ────────────────────────────────────────
+document.getElementById('search').addEventListener('input', render);
+
+// ── Arrancar ───────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
