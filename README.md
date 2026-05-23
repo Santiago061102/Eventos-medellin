@@ -1,16 +1,11 @@
-# 🌸 ¿Qué Hay en Medellín?
+# 🌸 ¿Qué hay pa hacer en Medellín?
 
 > Agenda cultural de eventos en vivo para Medellín, Colombia — 2026
 
-**Demo en vivo:** [santiago061102.github.io/Eventos-medellin](https://santiago061102.github.io/Eventos-medellin/)
-
----
 
 ## Descripción
 
-**¿Qué Hay en Medellín?** es una aplicación web que centraliza la agenda cultural de la ciudad: conciertos, festivales, teatro, comedia, danza, arte, gastronomía y mucho más. Los usuarios pueden explorar, filtrar y ordenar los eventos del año según sus intereses, con información en tiempo real conectada a una base de datos en Supabase.
-
-El proyecto también funciona como demostración práctica de un modelo relacional completo, con **6 tablas** y sus respectivas llaves foráneas.
+**¿Qué hay pa hacer en Medellín?** es una aplicación web que centraliza la agenda cultural de la ciudad: conciertos, festivales, teatro, comedia, danza, arte, gastronomía y mucho más. Los usuarios pueden explorar, filtrar y ordenar los eventos del año según sus intereses, con información en tiempo real conectada a una base de datos alojada en Supabase.
 
 ---
 
